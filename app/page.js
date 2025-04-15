@@ -1,46 +1,78 @@
 // src/app/page.js
+// src/app/page.js
+'use client';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function Home() {
+  // Function to handle smooth scrolling when navigation links are clicked
+  useEffect(() => {
+    const navLinks = document.querySelectorAll('nav a');
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Get the target section id from the href attribute
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          // Calculate header height to offset the scroll position
+          const headerHeight = document.querySelector('header').offsetHeight;
+          
+          // Scroll to the section with smooth behavior
+          window.scrollTo({
+            top: targetSection.offsetTop - headerHeight,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }, []);
+
   return (
     <main className="min-h-screen bg-white">
 
-{/* Header/Navigation */}
-<header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-  <div className="container mx-auto flex justify-between items-center py-4 px-6">
-    {/* Logo */}
-    <div className="flex items-center">
-      <div className="w-12 h-12 bg-gray-200 rounded-md overflow-hidden mr-3">
-        {/* Logo Placeholder - Replace with your actual logo */}
-        <Image 
-          src="/images/logo 2.jpg" 
-          alt="Zdelivery Logo"
-          width={56}
-          height={56}
-          className="object-cover w-full h-full"
-        />
-      </div>
-      <span className="text-xl font-bold text-purple-900">Zdelivery</span>
-    </div>
-    
-    {/* Navigation Menu */}
-    <nav className="hidden md:flex space-x-8">
-      <a href="#" className="text-gray-700 hover:text-purple-900 font-medium">Home</a>
-      <a href="#" className="text-gray-700 hover:text-purple-900 font-medium">About</a>
-      <a href="#" className="text-gray-700 hover:text-purple-900 font-medium">Products</a>
-      <a href="#" className="text-gray-700 hover:text-purple-900 font-medium">Contact</a>
-    </nav>
-    
-    {/* Mobile Menu Button */}
-    <button className="md:hidden text-gray-700">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-</header> 
+      {/* Header/Navigation */}
+      <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="w-12 h-12 bg-gray-200 rounded-md overflow-hidden mr-3">
+              {/* Logo Placeholder - Replace with your actual logo */}
+              <Image 
+                src="/images/logo 2.jpg" 
+                alt="Zdeliver Logo"
+                width={56}
+                height={56}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <span className="text-xl font-bold text-purple-900">Zdeliver</span>
+          </div>
+          
+           {/* Navigation Menu - Fixed href attributes */}
+           <nav className="hidden md:flex space-x-8">
+            <a href="#hero" className="text-gray-700 hover:text-purple-900 font-medium">Home</a>
+            <a href="#about" className="text-gray-700 hover:text-purple-900 font-medium">About</a>
+            <a href="#features" className="text-gray-700 hover:text-purple-900 font-medium">Features</a>
+            <a href="#download" className="text-gray-700 hover:text-purple-900 font-medium">Download</a>
+            {/* <a href="#contact" className="text-gray-700 hover:text-purple-900 font-medium">Contact</a> */}
+          </nav>
+          
+          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </header> 
+
       {/* Hero Section */}
-      <section className="relative pt-16">
+      <section id="hero" className="relative pt-16">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2">
           {/* Left Side - Shopping Bag */}
           <div className="flex flex-col justify-center items-center p-8 bg-amber-300 min-h-screen relative">
@@ -188,12 +220,12 @@ export default function Home() {
               </div>
               
               <div className="flex justify-between mt-12 pt-4 border-t border-purple-700">
-                <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-purple-900 transition">
+                {/* <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-purple-900 transition">
                   PLACE ORDER
                 </button>
                 <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-purple-900 transition">
                   RETURN TO CART
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -201,46 +233,46 @@ export default function Home() {
       </section>
 
       {/* About Company Section */}
-<section className="py-20 px-4 bg-white">
-  <div className="container mx-auto max-w-6xl">
-    <div className="flex flex-col lg:flex-row items-center gap-16">
-      {/* Image/Visual Side */}
-      <div className="lg:w-1/2">
-      <div className="rounded-xl overflow-hidden shadow-lg aspect-square w-full max-w-lg mx-auto">
-  <Image 
-    src="/images/DALL·E 2025-03-02 11.57.04 - A realistic vector-style illustration of an e-vehicle vegetable cart positioned closer to the camera in the center of a modern Mumbai or Pune society.webp" 
-    alt="Our Farm"
-    width={600}
-    height={600}
-    className="object-cover w-full h-full"
-  />
-</div>
-      </div>
-      
-      {/* Text Content Side */}
-      <div className="lg:w-1/2">
-        <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-        <div className="space-y-4">
-          <p className="text-lg text-gray-700">
-            Founded in 2025, Zdelivery has been committed to bringing the freshest produce directly from our farms to your table.
-          </p>
-          <p className="text-lg text-gray-700">
-            We work with a network of local farms that follow sustainable and environmentally-friendly farming practices. Our mission is to support local agriculture while providing our customers with the highest quality vegetables.
-          </p>
-          <p className="text-lg text-gray-700">
-            Every vegetable you order from us is harvested only after you place your order, ensuring maximum freshness and nutritional value. We believe in transparency and invite our customers to visit our farms and see our operations firsthand.
-          </p>
+      <section id="about" className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Image/Visual Side */}
+            <div className="lg:w-1/2">
+              <div className="rounded-xl overflow-hidden shadow-lg aspect-square w-full max-w-lg mx-auto">
+                <Image 
+                  src="/images/DALL·E 2025-03-02 11.57.04 - A realistic vector-style illustration of an e-vehicle vegetable cart positioned closer to the camera in the center of a modern Mumbai or Pune society.jpg" 
+                  alt="Our Farm"
+                  width={600}
+                  height={600}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+            
+            {/* Text Content Side */}
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <div className="space-y-4">
+                <p className="text-lg text-gray-700">
+                  Founded in 2025, Zdeliver has been committed to bringing the freshest produce directly from our farms to your table.
+                </p>
+                <p className="text-lg text-gray-700">
+                  We work with a network of local farms that follow sustainable and environmentally-friendly farming practices. Our mission is to support local agriculture while providing our customers with the highest quality vegetables.
+                </p>
+                <p className="text-lg text-gray-700">
+                  Every vegetable you order from us is harvested only after you place your order, ensuring maximum freshness and nutritional value. We believe in transparency and invite our customers to visit our farms and see our operations firsthand.
+                </p>
+              </div>
+              <button className="mt-8 bg-amber-300 text-purple-900 px-8 py-4 rounded-full font-medium text-lg hover:bg-amber-400 transition">
+                LEARN MORE
+              </button>
+            </div>
+          </div>
         </div>
-        <button className="mt-8 bg-amber-300 text-purple-900 px-8 py-4 rounded-full font-medium text-lg hover:bg-amber-400 transition">
-          LEARN MORE
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
       
       {/* Features Section */}
-      <section className="py-24 px-4 bg-gray-50">
+      <section id="features" className="py-24 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Why Choose Our Service?</h2>
           
@@ -288,46 +320,97 @@ export default function Home() {
       </section>
       
       {/* App Download Section */}
-      <section className="py-20 px-4 bg-purple-900 text-white">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold mb-6">Coming Soon to Mobile</h2>
-          <p className="text-xl mb-12">
-            Download our app for a seamless shopping experience. Get access to exclusive deals and faster checkout.
-          </p>
-          
-          <div className="flex flex-col md:flex-row gap-6 justify-center">
-            <button className="bg-black text-white px-8 py-4 rounded-lg flex items-center space-x-3 transition hover:bg-gray-800 max-w-xs mx-auto md:mx-0">
-              <span className="text-3xl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.05 15.5c.13.76.53 1.93 1.36 3.27-1.22.55-2.44.83-3.66.83-2.15 0-3.94-.73-5.42-2.18-.82.8-1.85 1.48-3.09 2.05s-2.45.85-3.64.85c-.94 0-1.68-.28-2.22-.85s-.81-1.28-.81-2.12c0-1.31.49-2.68 1.48-4.1.99-1.43 2.17-2.42 3.55-2.96-1.35-.99-2.02-2.05-2.02-3.2 0-.91.4-1.67 1.2-2.28.8-.61 1.82-.91 3.06-.91 1.07 0 1.98.24 2.71.73s1.27 1.12 1.59 1.9c.28-.65.67-1.18 1.17-1.57s1.08-.6 1.72-.6c.87 0 1.58.28 2.14.83.56.55.84 1.25.84 2.09 0 .83-.26 1.55-.78 2.17s-1.2 1-2.05 1.17c1.64.56 2.91 1.55 3.82 2.96s1.37 2.94 1.37 4.58c0 .89-.27 1.6-.81 2.13s-1.29.79-2.23.79c-1.28 0-2.41-.33-3.4-.99zM5.86 16.67c.95-.43 1.68-.98 2.19-1.66.51-.68.76-1.42.76-2.22 0-.8-.25-1.54-.76-2.21s-1.24-1.23-2.19-1.67c-.96-.44-2.04-.66-3.24-.66-.64 0-1.15.14-1.52.42-.36.28-.55.64-.55 1.09 0 .44.19.82.55 1.12.37.3.88.45 1.52.45 1.26 0 2.3.28 3.11.85.81.57 1.22 1.32 1.22 2.26 0 .87-.41 1.59-1.22 2.14-.82.56-1.85.84-3.11.84-.64 0-1.15.15-1.52.45-.37.3-.55.68-.55 1.12 0 .45.18.81.55 1.09.37.28.88.42 1.52.42 1.2 0 2.28-.22 3.24-.66zm11.08-5.7c.77-.37 1.37-.85 1.82-1.45.45-.6.67-1.27.67-2 0-.73-.22-1.34-.67-1.83-.45-.49-1.05-.73-1.82-.73-.77 0-1.38.24-1.82.73-.45.49-.67 1.1-.67 1.83 0 .73.22 1.4.67 2 .44.6 1.05 1.08 1.82 1.45zm0 7.05c.77.37 1.37.72 1.82 1.06.45.34.67.77.67 1.3 0 .53-.22.96-.67 1.3-.45.34-1.05.51-1.82.51-.77 0-1.38-.17-1.82-.51-.45-.34-.67-.77-.67-1.3 0-.53.22-.96.67-1.3.44-.34 1.05-.69 1.82-1.06z"/>
-                </svg>
-              </span>
-              <span>
-                <div className="text-xs">Coming Soon on</div>
-                <div className="text-lg font-bold">App Store</div>
-              </span>
-            </button>
-            <button className="bg-black text-white px-8 py-4 rounded-lg flex items-center space-x-3 transition hover:bg-gray-800 max-w-xs mx-auto md:mx-0">
-              <span className="text-3xl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3.609 1.814L13.792 12l-10.183 10.186c-.28-.292-.445-.643-.5-1.022-.063-.446-.063-1.342-.063-2.27V5.106c0-.93 0-1.824.063-2.27.063-.379.22-.73.5-1.022zm11.321 10.792l2.985 2.986L7.32 21.88l8.285-8.349c.158-.158.158-.414 0-.572zM7.32 2.12l10.595 6.287-2.985 2.985c-.158.158-.158.415 0 .573l-8.285-8.35L17.915 9.9 7.32 2.12z"/>
-                </svg>
-              </span>
-              <span>
-                <div className="text-xs">Coming Soon on</div>
-                <div className="text-lg font-bold">Google Play</div>
-              </span>
-            </button>
+      {/* App Download Section with Images */}
+<section id="download" className="py-20 px-4 bg-purple-900 text-white">
+  <div className="container mx-auto max-w-5xl">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Text Content */}
+      <div className="text-center lg:text-left">
+        <h2 className="text-4xl font-bold mb-6">Coming Soon to Mobile</h2>
+        <p className="text-xl mb-8">
+          Download our app for a seamless shopping experience. Get access to exclusive deals and faster checkout.
+        </p>
+        
+        <div className="flex flex-col md:flex-row gap-6 lg:justify-start justify-center">
+          <button className="bg-black text-white px-8 py-4 rounded-lg flex items-center space-x-3 transition hover:bg-gray-800 max-w-xs mx-auto md:mx-0">
+            <span className="text-3xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 15.5c.13.76.53 1.93 1.36 3.27-1.22.55-2.44.83-3.66.83-2.15 0-3.94-.73-5.42-2.18-.82.8-1.85 1.48-3.09 2.05s-2.45.85-3.64.85c-.94 0-1.68-.28-2.22-.85s-.81-1.28-.81-2.12c0-1.31.49-2.68 1.48-4.1.99-1.43 2.17-2.42 3.55-2.96-1.35-.99-2.02-2.05-2.02-3.2 0-.91.4-1.67 1.2-2.28.8-.61 1.82-.91 3.06-.91 1.07 0 1.98.24 2.71.73s1.27 1.12 1.59 1.9c.28-.65.67-1.18 1.17-1.57s1.08-.6 1.72-.6c.87 0 1.58.28 2.14.83.56.55.84 1.25.84 2.09 0 .83-.26 1.55-.78 2.17s-1.2 1-2.05 1.17c1.64.56 2.91 1.55 3.82 2.96s1.37 2.94 1.37 4.58c0 .89-.27 1.6-.81 2.13s-1.29.79-2.23.79c-1.28 0-2.41-.33-3.4-.99zM5.86 16.67c.95-.43 1.68-.98 2.19-1.66.51-.68.76-1.42.76-2.22 0-.8-.25-1.54-.76-2.21s-1.24-1.23-2.19-1.67c-.96-.44-2.04-.66-3.24-.66-.64 0-1.15.14-1.52.42-.36.28-.55.64-.55 1.09 0 .44.19.82.55 1.12.37.3.88.45 1.52.45 1.26 0 2.3.28 3.11.85.81.57 1.22 1.32 1.22 2.26 0 .87-.41 1.59-1.22 2.14-.82.56-1.85.84-3.11.84-.64 0-1.15.15-1.52.45-.37.3-.55.68-.55 1.12 0 .45.18.81.55 1.09.37.28.88.42 1.52.42 1.2 0 2.28-.22 3.24-.66zm11.08-5.7c.77-.37 1.37-.85 1.82-1.45.45-.6.67-1.27.67-2 0-.73-.22-1.34-.67-1.83-.45-.49-1.05-.73-1.82-.73-.77 0-1.38.24-1.82.73-.45.49-.67 1.1-.67 1.83 0 .73.22 1.4.67 2 .44.6 1.05 1.08 1.82 1.45zm0 7.05c.77.37 1.37.72 1.82 1.06.45.34.67.77.67 1.3 0 .53-.22.96-.67 1.3-.45.34-1.05.51-1.82.51-.77 0-1.38-.17-1.82-.51-.45-.34-.67-.77-.67-1.3 0-.53.22-.96.67-1.3.44-.34 1.05-.69 1.82-1.06z"/>
+              </svg>
+            </span>
+            <span>
+              <div className="text-xs">Coming Soon on</div>
+              <div className="text-lg font-bold">App Store</div>
+            </span>
+          </button>
+          <button className="bg-black text-white px-8 py-4 rounded-lg flex items-center space-x-3 transition hover:bg-gray-800 max-w-xs mx-auto md:mx-0">
+            <span className="text-3xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.609 1.814L13.792 12l-10.183 10.186c-.28-.292-.445-.643-.5-1.022-.063-.446-.063-1.342-.063-2.27V5.106c0-.93 0-1.824.063-2.27.063-.379.22-.73.5-1.022zm11.321 10.792l2.985 2.986L7.32 21.88l8.285-8.349c.158-.158.158-.414 0-.572zM7.32 2.12l10.595 6.287-2.985 2.985c-.158.158-.158.415 0 .573l-8.285-8.35L17.915 9.9 7.32 2.12z"/>
+              </svg>
+            </span>
+            <span>
+              <div className="text-xs">Coming Soon on</div>
+              <div className="text-lg font-bold">Google Play</div>
+            </span>
+          </button>
+        </div>
+      </div>
+      
+      {/* App Images */}
+      <div className="flex justify-center relative h-[500px]">
+        {/* First Phone Image */}
+        <div className="absolute transform -rotate-6 shadow-2xl rounded-3xl overflow-hidden border-8 border-gray-800 w-60 -left-4">
+          <div className="relative bg-white pt-8 pb-8 h-full">
+            {/* Notch */}
+            <div className="absolute top-0 inset-x-0 h-6 bg-gray-800 flex justify-center items-end pb-1">
+              <div className="w-20 h-1 bg-gray-600 rounded-full"></div>
+            </div>
+            
+            {/* App Screen - First Phone */}
+            <div className="h-full bg-amber-100 overflow-hidden">
+              <Image 
+                src="/images/iPhone-16-Pro (3).png" 
+                alt="Zdelivery App Home Screen" 
+                width={240}
+                height={480}
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
         </div>
-      </section>
+        
+        {/* Second Phone Image */}
+        <div className="absolute transform rotate-6 shadow-2xl rounded-3xl overflow-hidden border-8 border-gray-800 w-60 -right-4 top-16">
+          <div className="relative bg-white pt-8 pb-8 h-full">
+            {/* Notch */}
+            <div className="absolute top-0 inset-x-0 h-6 bg-gray-800 flex justify-center items-end pb-1">
+              <div className="w-20 h-1 bg-gray-600 rounded-full"></div>
+            </div>
+            
+            {/* App Screen - Second Phone */}
+            <div className="h-full bg-purple-100 overflow-hidden">
+              <Image 
+                src="/images/iPhone-16-Pro (1).png" 
+                alt="Zdelivery App Product Screen" 
+                width={240}
+                height={480}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       
-      {/* Footer */}
-      <footer className="bg-gray-100 py-12 px-4">
+      {/* Footer/Contact */}
+      <footer id="contact" className="bg-gray-100 py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold text-purple-900">Zdelivery</h3>
+              <h3 className="text-2xl font-bold text-purple-900">Zdeliver</h3>
               <p className="text-gray-600">Fresh vegetables delivered to your door</p>
             </div>
             
@@ -354,7 +437,7 @@ export default function Home() {
           </div>
           
           <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Zdelivery. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Zdeliver. All rights reserved.</p>
           </div>
         </div>
       </footer>
