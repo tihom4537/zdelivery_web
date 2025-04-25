@@ -97,138 +97,39 @@ export default function Home() {
             
             <div className="max-w-xl py-16 mt-48">
               <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                FRESH VEGETABLES FROM A RELIABLE SUPPLIER
+              The Fresh Market, Delivered Fast — Sustainably
               </h1>
               <p className="text-lg text-gray-800 mb-12">
-                We deliver quality vegetables directly from our farms. 
-                We guarantee freshness, naturalness, and the best conditions for our customers. 
-                Contact us and we will be happy to cooperate!
+              Experience the real sabzi mandi at your doorstep. 
+              Choose, inspect, and buy from a fresh assortment of 15–16 vegetables — delivered in just 10–15 minutes. 
+              Powered 100% by EVs, we bring you sustainability with the true mandi experience, minus the chaos.
               </p>
               <button className="bg-purple-900 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-purple-800 transition">
-                CATALOG
+                WILL BE LIVE SOON
               </button>
             </div>
           </div>
           
           {/* Right Side - Product Display */}
-          <div className="flex flex-col justify-center items-center p-8 bg-purple-900 text-white min-h-screen">
-            <div className="max-w-xl py-8">
-              <h2 className="text-3xl font-bold mb-10">IN STOCK:</h2>
-              
-              <div className="grid grid-cols-3 gap-4">
-                {/* Vegetable 1 */}
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="h-40 bg-gray-100 flex items-center justify-center relative">
-                    <Image 
-                      src="/images/hero-bg.jpg" 
-                      alt="Potatoes"
-                      width={200}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="font-medium text-gray-900">Standard Gorilla Cart</h3>
-                    <p className="text-sm text-gray-500">Includes 13 Fresh Vegetables</p>
-                  </div>
-                </div>
-                
-                {/* Vegetable 2 */}
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="h-40 bg-gray-100 flex items-center justify-center relative">
-                    <Image 
-                      src="/images/hero-bg.jpg" 
-                      alt="Carrots"
-                      width={200}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="font-medium text-gray-900">Standard Fruit Cart</h3>
-                    <p className="text-sm text-gray-500">Includes 13 Fresh fruits</p>
-                  </div>
-                </div>
-                
-                {/* Vegetable 3 */}
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="h-40 bg-gray-100 flex items-center justify-center relative">
-                    <Image 
-                      src="/images/hero-bg.jpg" 
-                      alt="Cabbage"
-                      width={200}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="font-medium text-gray-900">Customised Cart</h3>
-                    <p className="text-sm text-gray-500">Choose any Fresh Cart</p>
-                  </div>
-                </div>
-                
-                {/* Vegetable 4 */}
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="h-40 bg-gray-100 flex items-center justify-center relative">
-                    <Image 
-                      src="/images/hero-bg.jpg" 
-                      alt="Onions"
-                      width={200}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="font-medium text-gray-900">Customised Order</h3>
-                    <p className="text-sm text-gray-500">Choose anything from Cart</p>
-                  </div>
-                </div>
-                
-                {/* Vegetable 5 */}
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="h-40 bg-gray-100 flex items-center justify-center relative">
-                    <Image 
-                      src="/images/hero-bg.jpg" 
-                      alt="Green Onions"
-                      width={200}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="font-medium text-gray-900">Green Onions</h3>
-                    <p className="text-sm text-gray-500">Fresh local</p>
-                  </div>
-                </div>
-                
-                {/* Vegetable 6 */}
-                <div className="bg-white rounded-lg overflow-hidden">
-                  <div className="h-40 bg-gray-100 flex items-center justify-center relative">
-                    <Image 
-                      src="/images/hero-bg.jpg" 
-                      alt="Beets"
-                      width={200}
-                      height={160}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="font-medium text-gray-900">Beets</h3>
-                    <p className="text-sm text-gray-500">Fresh local</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex justify-between mt-12 pt-4 border-t border-purple-700">
-                {/* <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-purple-900 transition">
-                  PLACE ORDER
-                </button>
-                <button className="bg-transparent border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-purple-900 transition">
-                  RETURN TO CART
-                </button> */}
-              </div>
-            </div>
+
+          <div className="flex flex-col justify-center items-center p-8 bg-purple-900 min-h-screen">
+      <div className="max-w-md w-full"> {/* Reduced max width to ensure image isn't too wide */}
+        {/* Full length image container with preserved aspect ratio */}
+        <div className="rounded-lg overflow-hidden shadow-lg">
+          <div className="relative" style={{ paddingBottom: '200%' }}> {/* Taller aspect ratio to show full length */}
+            <Image 
+              src="/images/iPhone-16-Pro (7).png" 
+              alt="Fresh Produce App Interface"
+              layout="fill"
+              objectFit="contain" /* Changed to contain to ensure the whole image is visible */
+              className="w-full h-full"
+            />
+
           </div>
+        </div>
+      </div>
+    </div>
+      
         </div>
       </section>
 
@@ -254,18 +155,29 @@ export default function Home() {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4">
                 <p className="text-lg text-gray-700">
-                  Founded in 2025, Zdeliver has been committed to bringing the freshest produce directly from our farms to your table.
+
+                Would you trust a stranger to choose what your family eats every day?
+                We wouldn’t. And we believe you shouldn’t have to.
                 </p>
                 <p className="text-lg text-gray-700">
-                  We work with a network of local farms that follow sustainable and environmentally-friendly farming practices. Our mission is to support local agriculture while providing our customers with the highest quality vegetables.
+                Fresh vegetables are not a product — they are a responsibility.
+                For generations, families handpicked every leaf, every tomato, every potato — because food is trust, not just a transaction.
                 </p>
                 <p className="text-lg text-gray-700">
-                  Every vegetable you order from us is harvested only after you place your order, ensuring maximum freshness and nutritional value. We believe in transparency and invite our customers to visit our farms and see our operations firsthand.
+                But today, in a world that’s too busy to care, that trust is being lost.
+                At Z Deliver, we’re bringing it back.
+                </p>
+                <p className="text-lg text-gray-700">
+                We don’t just deliver vegetables.
+                We deliver your choices.
+                We deliver the care you would show if you were standing there yourself.
+                We are building India’s first personalised mandi-on-wheels — fast, fresh, sustainable, and trustworthy.
                 </p>
               </div>
-              <button className="mt-8 bg-amber-300 text-purple-900 px-8 py-4 rounded-full font-medium text-lg hover:bg-amber-400 transition">
+              {/* <button className="mt-8 bg-amber-300 text-purple-900 px-8 py-4 rounded-full font-medium text-lg hover:bg-amber-400 transition">
                 LEARN MORE
-              </button>
+              </button> */}
+
             </div>
           </div>
         </div>
@@ -284,9 +196,9 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">Quality Products</h3>
+              <h3 className="text-xl font-semibold text-gray-900 text-center mb-3"> Personalised Experience</h3>
               <p className="text-gray-600 text-center">
-                We deliver only the freshest and highest quality vegetables from local farms.
+              Handpicked veggies, tailored for your needs — just like shopping for your family.
               </p>
             </div>
             
@@ -297,9 +209,9 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">Quick Delivery</h3>
+              <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">Quick & Light Purchasing</h3>
               <p className="text-gray-600 text-center">
-                Get your fresh vegetables delivered to your doorstep within hours of placing your order.
+              Swift, hassle-free buying with no heavy loads — pure convenience delivered.
               </p>
             </div>
             
@@ -310,9 +222,9 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">Easy Ordering</h3>
+              <h3 className="text-xl font-semibold text-gray-900 text-center mb-3">Smooth Escape from Chaos</h3>
               <p className="text-gray-600 text-center">
-                Our simple app makes ordering fresh vegetables quick and convenient.
+              Skip the crowded mandi rush — enjoy fresh shopping at your doorstep.
               </p>
             </div>
           </div>
@@ -404,6 +316,26 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+
+<section className="py-12 px-4 bg-white">
+  <div className="container mx-auto max-w-5xl text-center">
+    <h2 className="text-3xl font-bold mb-4 text-gray-900">Need Help?</h2>
+    <p className="text-xl mb-6 text-gray-700">
+      Our support team is here to assist you with any questions or concerns.
+    </p>
+    
+    <div className="inline-flex items-center justify-center bg-gray-100 px-6 py-4 rounded-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3 text-purple-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+      <a href="mailto:support@zdeliver.com" className="text-lg font-medium text-purple-900 hover:underline">
+        support@zdeliver.com
+      </a>
+    </div>
+  </div>
+</section>
+
       
       {/* Footer/Contact */}
       <footer id="contact" className="bg-gray-100 py-12 px-4">
