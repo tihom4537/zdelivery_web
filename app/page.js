@@ -41,15 +41,18 @@ export default function Home() {
           <div className="flex items-center">
             <div className="w-12 h-12 bg-gray-200 rounded-md overflow-hidden mr-3">
               {/* Logo Placeholder - Replace with your actual logo */}
-              <Image 
+              {/* <Image 
                 src="/images/logo 2.jpg" 
-                alt="Zdeliver Logo"
+                alt="PreetEnterprises Logo"
                 width={56}
                 height={56}
                 className="object-cover w-full h-full"
-              />
+              /> */}
+              <text>
+                PreetEnterprises
+              </text>
             </div>
-            <span className="text-xl font-bold text-purple-900">Zdeliver</span>
+            <span className="text-xl font-bold text-purple-900">PreetEnterprises</span>
           </div>
           
            {/* Navigation Menu - Fixed href attributes */}
@@ -283,7 +286,7 @@ export default function Home() {
             <div className="h-full bg-amber-100 overflow-hidden">
               <Image 
                 src="/images/iPhone-16-Pro (3).png" 
-                alt="Zdelivery App Home Screen" 
+                alt="PreetEnterprisesy App Home Screen" 
                 width={240}
                 height={480}
                 className="object-cover w-full h-full"
@@ -304,7 +307,7 @@ export default function Home() {
             <div className="h-full bg-purple-100 overflow-hidden">
               <Image 
                 src="/images/iPhone-16-Pro (1).png" 
-                alt="Zdelivery App Product Screen" 
+                alt="PreetEnterprisesy App Product Screen" 
                 width={240}
                 height={480}
                 className="object-cover w-full h-full"
@@ -329,8 +332,8 @@ export default function Home() {
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3 text-purple-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
-      <a href="mailto:support@zdeliver.com" className="text-lg font-medium text-purple-900 hover:underline">
-        support@zdeliver.com
+      <a href="mailto:support@PreetEnterprises.com" className="text-lg font-medium text-purple-900 hover:underline">
+        support@PreetEnterprises.com
       </a>
     </div>
   </div>
@@ -342,7 +345,7 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold text-purple-900">Zdeliver</h3>
+              <h3 className="text-2xl font-bold text-purple-900">PreetEnterprises</h3>
               <p className="text-gray-600">Fresh vegetables delivered to your door</p>
             </div>
             
@@ -369,7 +372,7 @@ export default function Home() {
           </div>
           
           <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Zdeliver. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} PreetEnterprises. All rights reserved.</p>
           </div>
         </div>
       </footer>
